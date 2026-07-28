@@ -203,6 +203,40 @@ footer.site{
 .badge-ios{background:#eaf2ff;color:#1f4ed8}
 .badge-android{background:#ecfff8;color:#0a8f7a}
 
+
+/* ---------- CreatorOnly legal buttons ---------- */
+.legal-buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:0 0 28px;
+}
+.legal-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:600;
+  text-decoration:none;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.legal-btn:hover{
+  transform:translateY(-2px);
+  text-decoration:none;
+}
+.legal-btn-primary{
+  color:#fff;
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  box-shadow:0 10px 24px rgba(108,92,231,.25);
+}
+.legal-btn-secondary{
+  color:var(--ink);
+  background:#fff;
+  border:1px solid var(--line);
+  box-shadow:0 10px 24px rgba(20,24,60,.08);
+}
+
 @media (max-width: 860px){
   .games-grid{grid-template-columns:1fr}
   .hero-wrap{grid-template-columns:1fr;text-align:center}
@@ -212,13 +246,21 @@ footer.site{
   .foot{grid-template-columns:1fr}
   nav.links{display:none}
 }
+
+/* ---------- Single-file screen routing ---------- */
+.app-page{display:none}
+.app-page.is-active{display:block}
+body.route-legal .hero{display:none}
+.route-home footer.site{margin-top:40px}
+.route-legal footer.site{margin-top:0}
+
 </style>
 </head>
 <body>
 
 <header class="site">
   <div class="nav">
-    <a href="#" class="brand">
+    <a href="#/home" class="brand">
       <div class="logo">P</div>
       <div>
         Passive Investments Learning Ltd.
@@ -226,32 +268,34 @@ footer.site{
       </div>
     </a>
     <nav class="links">
-      <a href="#games">Our Games</a>
-      <a href="#features">Features</a>
-      <a href="#child-safety">Child Safety</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#contact">Contact</a>
+      <a href="#/home-games">Our Games</a>
+      <a href="#/home-features">Features</a>
+      <a href="#/child-safety">Child Safety</a>
+      <a href="#/privacy-policy">Privacy</a>
+      <a href="#/creatoronly-privacy">CreatorOnly Privacy</a>
+      <a href="#/creatoronly-terms">CreatorOnly Terms</a>
+      <a href="#/privacy-policy-contact">Contact</a>
     </nav>
   </div>
 </header>
 
 <!-- Hero -->
-<section class="hero" id="about">
+<section class="hero app-page" id="about" data-page="home">
   <div class="hero-wrap" style="grid-template-columns:1fr;text-align:center;max-width:780px">
     <div>
       <span class="eyebrow">★ Independent Mobile Games Studio</span>
       <h1>Passive Investments Learning Ltd.</h1>
       <p class="lead" style="margin-left:auto;margin-right:auto">We craft engaging, family-friendly mobile games. Two titles, two platforms — designed to entertain, reward, and respect your data.</p>
       <div style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a href="#games" style="background:#fff;color:#0e1430;padding:12px 22px;border-radius:12px;font-weight:600;text-decoration:none">Explore our games</a>
-        <a href="#privacy" style="background:transparent;color:#fff;padding:12px 22px;border-radius:12px;font-weight:600;border:1px solid rgba(255,255,255,.25);text-decoration:none">Privacy Policy</a>
+        <a href="#/home-games" style="background:#fff;color:#0e1430;padding:12px 22px;border-radius:12px;font-weight:600;text-decoration:none">Explore our games</a>
+        <a href="#/privacy-policy" style="background:transparent;color:#fff;padding:12px 22px;border-radius:12px;font-weight:600;border:1px solid rgba(255,255,255,.25);text-decoration:none">Privacy Policy</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Games -->
-<section class="section" id="games" style="padding-top:60px">
+<section class="section app-page" id="games" data-page="home" style="padding-top:60px">
   <div class="section-wrap">
     <h2 class="section-title">Our Games</h2>
     <p class="section-sub">Each of our titles is built for a single platform — fully optimized, fully native.</p>
@@ -315,7 +359,7 @@ footer.site{
 </section>
 
 <!-- Features -->
-<section class="section" id="features">
+<section class="section app-page" id="features" data-page="home">
   <div class="section-wrap">
     <h2 class="section-title">Why players love our games</h2>
     <p class="section-sub">Two polished mobile experiences designed with care — playful, rewarding, and transparent about how they work.</p>
@@ -342,7 +386,7 @@ footer.site{
 
 
 <!-- Child Safety Standards -->
-<section class="section" id="child-safety" style="padding-top:0">
+<section class="section app-page" id="child-safety" data-page="child-safety" style="padding-top:0">
   <div class="section-wrap">
     <div class="policy">
       <h2 class="section-title" style="margin-bottom:10px">Child Safety Standards</h2>
@@ -397,7 +441,7 @@ footer.site{
 </section>
 
 <!-- Privacy -->
-<section class="section" id="privacy" style="padding-top:0">
+<section class="section app-page" id="privacy" data-page="privacy-policy" style="padding-top:0">
   <div class="section-wrap">
     <div class="policy">
       <h2 class="section-title" style="margin-bottom:10px">Privacy Policy</h2>
@@ -536,6 +580,208 @@ footer.site{
   </div>
 </section>
 
+
+<!-- CreatorOnly Privacy Policy -->
+<section class="section app-page" id="creatoronly-privacy" data-page="creatoronly-privacy" style="padding-top:0">
+  <div class="section-wrap">
+    <div class="policy">
+      <h2 class="section-title" style="margin-bottom:10px">CreatorOnly Privacy Policy</h2>
+      <div class="kv">
+        <span>Last updated: July 28, 2026</span>
+        <span>App: CreatorOnly – For Your Fans</span>
+        <span>Contact: support@creatoronly.app</span>
+      </div>
+
+      <div class="legal-buttons">
+        <a class="legal-btn legal-btn-primary" href="#/creatoronly-privacy">Privacy Policy</a>
+        <a class="legal-btn legal-btn-secondary" href="#/creatoronly-terms">Terms of Use</a>
+      </div>
+
+      <h2>1. Introduction</h2>
+      <p>Welcome to CreatorOnly ("we," "our," or "us"). We are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and related services.</p>
+      <p>By using CreatorOnly, you agree to the collection and use of information in accordance with this policy. If you do not agree, please do not use the app.</p>
+
+      <h2>2. Information We Collect</h2>
+      <p><strong>Information you provide directly:</strong></p>
+      <ul>
+        <li>Account registration details: username, email address, password.</li>
+        <li>Profile information: bio, profile photo, date of birth, gender, country, interests.</li>
+        <li>Content you upload: photos, messages, stories.</li>
+        <li>Communications with creators and support.</li>
+      </ul>
+
+      <p><strong>Information collected automatically:</strong></p>
+      <ul>
+        <li>Device information: device type, operating system, unique device identifiers.</li>
+        <li>Usage data: features accessed, time spent, interaction patterns.</li>
+        <li>Transaction data: in-app purchases, subscription status processed through the Apple App Store.</li>
+        <li>Log data: IP address, crash reports, performance data.</li>
+      </ul>
+
+      <h2>3. How We Use Your Information</h2>
+      <ul>
+        <li>To create and manage your account.</li>
+        <li>To provide, operate, and improve the CreatorOnly service.</li>
+        <li>To process in-app purchases and subscriptions.</li>
+        <li>To enable communication between fans and creators.</li>
+        <li>To send service notifications and updates.</li>
+        <li>To detect, prevent, and address fraud, abuse, or security issues.</li>
+        <li>To respond to user reports and enforce community standards.</li>
+        <li>To comply with legal obligations.</li>
+      </ul>
+
+      <h2>4. Sharing Your Information</h2>
+      <p>We do not sell your personal information. We may share your information only in the following circumstances:</p>
+      <ul>
+        <li><strong>Service providers:</strong> Firebase (Google) for authentication, database, and storage; RevenueCat for subscription management; and Apple for payment processing.</li>
+        <li><strong>Public profile information:</strong> Your username, profile photo, bio, and content you post may be visible to other users of the app.</li>
+        <li><strong>Legal requirements:</strong> If required by law, regulation, or valid legal process.</li>
+        <li><strong>Safety:</strong> To protect the rights, property, or safety of our users or others.</li>
+      </ul>
+
+      <h2>5. User-Generated Content</h2>
+      <p>Content you post, including photos, messages, and stories, is visible to other users according to your privacy settings. Creators' content is visible to subscribers. You are solely responsible for the content you upload. We reserve the right to remove content that violates our Terms of Use or community guidelines.</p>
+
+      <h2>6. Data Retention</h2>
+      <p>We retain your information for as long as your account is active or as needed to provide services. You may request deletion of your account and associated data at any time through the app by selecting "Remove My Account" in Profile settings, or by contacting us at <a href="mailto:support@creatoronly.app">support@creatoronly.app</a>.</p>
+
+      <h2>7. Children's Privacy</h2>
+      <p>CreatorOnly is intended for users 18 years of age and older. We do not knowingly collect personal information from anyone under 18. If we become aware that we have collected personal data from a minor, we will delete it immediately. If you believe a minor has provided us with personal information, please contact us.</p>
+
+      <h2>8. Security</h2>
+      <p>We use industry-standard security measures, including encryption in transit through HTTPS/TLS and Firebase Security Rules, to protect your information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.</p>
+
+      <h2>9. Your Rights</h2>
+      <p>Depending on your location, you may have the right to:</p>
+      <ul>
+        <li>Access the personal data we hold about you.</li>
+        <li>Correct inaccurate data.</li>
+        <li>Request deletion of your data.</li>
+        <li>Object to or restrict processing of your data.</li>
+        <li>Request data portability.</li>
+      </ul>
+      <p>To exercise these rights, contact us at <a href="mailto:support@creatoronly.app">support@creatoronly.app</a>.</p>
+
+      <h2>10. Third-Party Services</h2>
+      <p>Our app uses the following third-party services, each governed by its own privacy policy:</p>
+      <ul>
+        <li>Google Firebase — authentication, database, and cloud storage.</li>
+        <li>RevenueCat — subscription and in-app purchase management.</li>
+        <li>Apple App Store — payment processing for iOS purchases.</li>
+      </ul>
+
+      <h2>11. Cookies and Tracking</h2>
+      <p>Our mobile app does not use cookies. We may use Firebase Analytics to collect aggregated usage statistics to improve the service.</p>
+
+      <h2>12. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by updating the "Last updated" date at the top of this page and, where appropriate, through an in-app notification. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+
+      <h2>13. Contact Us</h2>
+      <p>If you have questions or concerns about this Privacy Policy, please contact us:</p>
+      <p>
+        <strong>Email:</strong> <a href="mailto:support@creatoronly.app">support@creatoronly.app</a><br>
+        <strong>App:</strong> Profile → Help &amp; Support
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CreatorOnly Terms of Use -->
+<section class="section app-page" id="creatoronly-terms" data-page="creatoronly-terms" style="padding-top:0">
+  <div class="section-wrap">
+    <div class="policy">
+      <h2 class="section-title" style="margin-bottom:10px">CreatorOnly Terms of Use</h2>
+      <div class="kv">
+        <span>Last updated: July 28, 2026</span>
+        <span>App: CreatorOnly – For Your Fans</span>
+        <span>Contact: support@creatoronly.app</span>
+      </div>
+
+      <div class="legal-buttons">
+        <a class="legal-btn legal-btn-secondary" href="#/creatoronly-privacy">Privacy Policy</a>
+        <a class="legal-btn legal-btn-primary" href="#/creatoronly-terms">Terms of Use</a>
+      </div>
+
+      <h2>1. Acceptance of Terms</h2>
+      <p>By downloading, installing, or using the CreatorOnly application ("App"), you agree to be bound by these Terms of Use ("Terms"). If you do not agree to these Terms, do not use the App. These Terms constitute a binding agreement between you and CreatorOnly ("we," "us," or "our").</p>
+
+      <h2>2. Eligibility</h2>
+      <p>You must be at least 18 years of age to use CreatorOnly. By using the App, you represent and warrant that you are 18 or older and have the legal capacity to enter into this agreement. We reserve the right to terminate accounts of users who misrepresent their age.</p>
+
+      <h2>3. Account Registration</h2>
+      <ul>
+        <li>You must provide accurate and complete information when creating an account.</li>
+        <li>You are responsible for maintaining the confidentiality of your login credentials.</li>
+        <li>You are responsible for all activity that occurs under your account.</li>
+        <li>You may not create an account on behalf of another person without their consent.</li>
+        <li>One person may not maintain multiple accounts.</li>
+      </ul>
+
+      <h2>4. In-App Purchases and Subscriptions</h2>
+      <p><strong>VIP Access (One-time purchase):</strong> Grants permanent access to browse all creator profiles and content on the platform. Payment is charged to your Apple ID account at confirmation of purchase.</p>
+      <p><strong>Messaging Subscriptions (Auto-renewable):</strong> Basic and Pro plans grant the ability to send messages to creators. Subscriptions automatically renew at the end of each period (monthly, 6-month, or annual) unless cancelled at least 24 hours before the renewal date. Your Apple ID will be charged for renewal within 24 hours prior to the end of the current period.</p>
+      <p><strong>Coins (Non-refundable):</strong> Virtual coins are used to unlock private content. Coins have no monetary value and cannot be transferred, exchanged for cash, or refunded.</p>
+      <p>You can manage and cancel your subscriptions at any time through your Apple ID account settings under Settings → [Your Name] → Subscriptions. Cancellation takes effect at the end of the current billing period, and you retain access until then.</p>
+      <p>All purchases are processed by Apple and are subject to Apple's payment terms. We do not store your payment information.</p>
+      <p><strong>No refunds:</strong> All purchases are final. Refund requests must be directed to Apple through its standard refund process.</p>
+
+      <h2>5. User-Generated Content</h2>
+      <p>You retain ownership of content you upload ("Your Content"). By posting content, you grant CreatorOnly a non-exclusive, royalty-free, worldwide license to display, reproduce, and distribute Your Content solely for the purpose of operating the App.</p>
+      <p>You represent and warrant that:</p>
+      <ul>
+        <li>You own or have the rights to post Your Content.</li>
+        <li>Your Content does not violate any third-party rights.</li>
+        <li>Your Content complies with all applicable laws.</li>
+        <li>All persons depicted in Your Content are adults aged 18 or older who have consented to appear.</li>
+      </ul>
+
+      <h2>6. Community Standards and Prohibited Content</h2>
+      <p>You agree not to post, upload, or share content that:</p>
+      <ul>
+        <li>Depicts minors in a sexual or inappropriate manner. Such content is strictly prohibited and may be reported to the relevant authorities.</li>
+        <li>Is abusive, harassing, threatening, or defamatory.</li>
+        <li>Infringes any third-party intellectual property rights.</li>
+        <li>Contains malware, spam, or deceptive material.</li>
+        <li>Violates any applicable law or regulation.</li>
+        <li>Impersonates any person or entity.</li>
+      </ul>
+      <p>Violations may result in immediate account termination and, where required by law, reporting to relevant authorities.</p>
+
+      <h2>7. Reporting and Blocking</h2>
+      <p>CreatorOnly provides in-app tools to report objectionable content or abusive users and to block users. We review reports and take appropriate action, which may include content removal, account suspension, or reporting to law enforcement. To report a user, open the user's profile and tap the "⋮" menu.</p>
+
+      <h2>8. Intellectual Property</h2>
+      <p>All rights, title, and interest in and to the App, including its design, graphics, features, and underlying technology, are owned by CreatorOnly. You may not copy, modify, distribute, sell, or lease any part of the App without our express written permission.</p>
+
+      <h2>9. Privacy</h2>
+      <p>Your use of CreatorOnly is also governed by our <a href="#/creatoronly-privacy">Privacy Policy</a>, which is incorporated into these Terms by reference.</p>
+
+      <h2>10. Disclaimers</h2>
+      <p>The App is provided "as is" and "as available" without warranties of any kind, either express or implied. We do not warrant that the App will be uninterrupted, error-free, or free of harmful components. We are not responsible for content posted by users.</p>
+
+      <h2>11. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by law, CreatorOnly shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, the App or any content therein, even if we have been advised of the possibility of such damages.</p>
+
+      <h2>12. Termination</h2>
+      <p>We may suspend or terminate your account at any time for any reason, including violation of these Terms. You may delete your account at any time through Profile → Remove My Account. Upon termination, your right to use the App ceases immediately.</p>
+
+      <h2>13. Changes to Terms</h2>
+      <p>We reserve the right to modify these Terms at any time. We will notify you of material changes by updating the "Last updated" date and, where appropriate, by in-app notification. Continued use after changes constitutes acceptance of the revised Terms.</p>
+
+      <h2>14. Governing Law</h2>
+      <p>These Terms shall be governed by and construed in accordance with the laws of the State of Israel, without regard to conflict-of-law principles. Any disputes shall be subject to the exclusive jurisdiction of the courts in Israel.</p>
+
+      <h2>15. Contact</h2>
+      <p>For questions about these Terms, please contact us:</p>
+      <p>
+        <strong>Email:</strong> <a href="mailto:support@creatoronly.app">support@creatoronly.app</a><br>
+        <strong>App:</strong> Profile → Help &amp; Support
+      </p>
+    </div>
+  </div>
+</section>
+
+
 <footer class="site">
   <div class="foot">
     <div>
@@ -552,13 +798,15 @@ footer.site{
       <h4>Our Games</h4>
       <a href="https://apps.apple.com/us/app/farm-gamee/id6762126657" target="_blank" rel="noopener">Farm Gamee — App Store</a>
       <a href="https://play.google.com/store/apps/details?id=com.MichDev.get" target="_blank" rel="noopener">Free Cash — Google Play</a>
-      <a href="#features">Features</a>
+      <a href="#/home-features">Features</a>
     </div>
     <div>
       <h4>Company</h4>
-      <a href="#child-safety">Child Safety Standards</a>
-      <a href="#privacy">Privacy Policy</a>
-      <a href="#contact">Contact</a>
+      <a href="#/child-safety">Child Safety Standards</a>
+      <a href="#/privacy-policy">Studio Privacy Policy</a>
+      <a href="#/creatoronly-privacy">CreatorOnly Privacy Policy</a>
+      <a href="#/creatoronly-terms">CreatorOnly Terms of Use</a>
+      <a href="#/privacy-policy-contact">Contact</a>
       <a href="mailto:bomickethomasernst@gmail.com">bomickethomasernst@gmail.com</a>
     </div>
   </div>
@@ -567,6 +815,64 @@ footer.site{
     <span>Google Play and the Google Play logo are trademarks of Google LLC. Apple and App Store are trademarks of Apple Inc.</span>
   </div>
 </footer>
+
+
+<script>
+(function () {
+  const routeMap = {
+    "": "home",
+    "/": "home",
+    "/home": "home",
+    "/home-games": "home",
+    "/home-features": "home",
+    "/privacy-policy": "privacy-policy",
+    "/privacy-policy-contact": "privacy-policy",
+    "/child-safety": "child-safety",
+    "/creatoronly-privacy": "creatoronly-privacy",
+    "/creatoronly-terms": "creatoronly-terms"
+  };
+
+  function currentRoute() {
+    const raw = window.location.hash.replace(/^#/, "");
+    return raw || "/";
+  }
+
+  function renderRoute() {
+    const route = currentRoute();
+    const page = routeMap[route] || "home";
+
+    document.querySelectorAll(".app-page").forEach(function (section) {
+      section.classList.toggle("is-active", section.dataset.page === page);
+    });
+
+    document.body.classList.toggle("route-home", page === "home");
+    document.body.classList.toggle("route-legal", page !== "home");
+
+    window.scrollTo({ top: 0, behavior: "instant" });
+
+    if (route === "/home-games") {
+      requestAnimationFrame(function () {
+        document.getElementById("games")?.scrollIntoView();
+      });
+    }
+
+    if (route === "/home-features") {
+      requestAnimationFrame(function () {
+        document.getElementById("features")?.scrollIntoView();
+      });
+    }
+
+    if (route === "/privacy-policy-contact") {
+      requestAnimationFrame(function () {
+        document.getElementById("contact")?.scrollIntoView();
+      });
+    }
+  }
+
+  window.addEventListener("hashchange", renderRoute);
+  window.addEventListener("DOMContentLoaded", renderRoute);
+})();
+</script>
 
 </body>
 </html>
